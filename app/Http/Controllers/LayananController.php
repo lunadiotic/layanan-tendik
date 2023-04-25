@@ -16,7 +16,6 @@ class LayananController extends Controller
                 ->addColumn('action', function ($model) {
                     return view('layouts.partials._action', [
                         'model' => $model,
-                        'url_show' => route('layanan.show', $model->id),
                         'url_edit' => route('layanan.edit', $model->id),
                         'url_destroy' => route('layanan.destroy', $model->id)
                     ]);
