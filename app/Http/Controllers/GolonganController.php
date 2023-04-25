@@ -59,7 +59,8 @@ class GolonganController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $golongan = Golongan::findOrFail($id);
+        return view('pages.golongan.edit', compact('golongan'));
     }
 
     /**
@@ -67,7 +68,9 @@ class GolonganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $golongan = Golongan::findOrFail($id);
+        $golongan->update($request->all());
+        return redirect()->route('golongan.index');
     }
 
     /**

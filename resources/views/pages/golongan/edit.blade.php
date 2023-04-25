@@ -5,7 +5,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Form Layanan</h1>
+        <h1 class="h3 mb-0 text-gray-800">Form Golongan</h1>
     </div>
 
     <div class="row">
@@ -15,29 +15,20 @@
             <!-- Default Card Example -->
             <div class="card mb-4">
                 <div class="card-header">
-                    Ubah Layanan
+                    Ubah Golongan
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('layanan.update', $model->id) }}" method="POST">
+                    <form action="{{ route('golongan.update', $golongan->id) }}" method="POST">
                         @csrf @method('PUT')
                         <div class="form-group">
-                            <label for="nama_layanan">Nama Layanan</label>
-                            <input type="text" class="form-control" id="nama_layanan" name="nama_layanan" required
-                                value="{{ $model->nama_layanan }}">
+                            <label for="nama_golongan">Nama Golongan</label>
+                            <input type="text" class="form-control" id="nama_golongan" name="nama_golongan" required
+                                value="{{ $golongan->nama_golongan }}">
                         </div>
                         <div class="form-group">
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status_layanan_1" name="status_layanan"
-                                    class="custom-control-input" value="1" {{ $model->status_layanan == 1 ? 'checked' :
-                                '' }}>
-                                <label class="custom-control-label" for="status_layanan_1">Aktif</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status_layanan_2" name="status_layanan"
-                                    class="custom-control-input" value="0" {{ $model->status_layanan == 0 ? 'checked' :
-                                '' }} >
-                                <label class="custom-control-label" for="status_layanan_2">Non-Aktif</label>
-                            </div>
+                            <label for="status_golongan">Status Golongan</label>
+                            <input type="text" class="form-control" id="status_golongan" name="status_golongan" required
+                                value="{{ $golongan->status_golongan }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
