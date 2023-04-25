@@ -50,4 +50,11 @@ class LayananController extends Controller
         $model->update($request->all());
         return redirect()->route('layanan.index');
     }
+
+    public function destroy($id)
+    {
+        $model = Layanan::findOrFail($id);
+        $model->delete();
+        return redirect()->route('layanan.index');
+    }
 }
