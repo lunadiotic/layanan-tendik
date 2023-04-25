@@ -20,7 +20,6 @@ class PersyaratanLayanan extends Controller
                 ->addColumn('action', function ($model) use ($layanan) {
                     return view('layouts.partials._action', [
                         'model' => $model,
-                        'url_show' => route('layanan.syarat.show', [$layanan->id, $model->id]),
                         'url_edit' => route('layanan.syarat.edit', [$layanan->id, $model->id]),
                         'url_destroy' => route('layanan.syarat.destroy', [$layanan->id, $model->id])
                     ]);
@@ -61,17 +60,22 @@ class PersyaratanLayanan extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $idLayanan, string $idSyarat)
     {
-        //
+        $layanan = Layanan::findOrFail($idLayanan);
+        $syarat = $layanan->persyaratan()->findOrFail($idSyarat);
+        return view('pages.persyaratan-layanan.edit', compact('layanan', 'syarat'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $idLayanan, string $idSyarat)
     {
-        //
+        $layanan = Layanan::findOrFail($idLayanan);
+        $syarat = $layanan->persyaratan()->findOrFail($idSyarat);
+        $syarat->update($request->all());
+        return redirect()->route('layanan.syarat.index', $layanan->id);
     }
 
     /**
