@@ -78,6 +78,8 @@ class SatpenController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $satpen = Satpen::findOrFail($id);
+        $satpen->delete();
+        return redirect()->route('satpen.index');
     }
 }
