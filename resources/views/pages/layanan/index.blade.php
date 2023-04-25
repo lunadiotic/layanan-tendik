@@ -45,7 +45,7 @@ $(document).ready(function() {
             columns: [
                 {data: 'nama_layanan', name: 'nama_layanan'},
                 {data: function(data) {
-                    return data.status_layanan == 1 ? '<span class="badge badge-soft-success">Active</span>' : '<span class="badge badge-soft-danger">Inactive</span>'
+                    return data.status_layanan == 1 ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-danger">Non-Aktif</span>'
                 }, name: 'status_layanan'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
