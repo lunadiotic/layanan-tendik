@@ -59,7 +59,8 @@ class SatpenController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $satpen = Satpen::findOrFail($id);
+        return view('pages.satpen.edit', compact('satpen'));
     }
 
     /**
@@ -67,7 +68,9 @@ class SatpenController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $satpen = Satpen::findOrFail($id);
+        $satpen->update($request->all());
+        return redirect()->route('satpen.index');
     }
 
     /**
