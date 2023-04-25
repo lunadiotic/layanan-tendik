@@ -32,7 +32,6 @@
         <div id="masterData" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('layanan.index') }}">Layanan</a>
-                <a class="collapse-item" href="#">Persyaratan</a>
                 <a class="collapse-item" href="#">Golongan</a>
                 <a class="collapse-item" href="#">Satpen</a>
             </div>

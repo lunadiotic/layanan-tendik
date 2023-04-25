@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('layanan', App\Http\Controllers\LayananController::class);
+Route::resource('layanan', App\Http\Controllers\LayananController::class)->middleware('auth');
+Route::resource('layanan.syarat', App\Http\Controllers\PersyaratanLayanan::class)->middleware('auth');

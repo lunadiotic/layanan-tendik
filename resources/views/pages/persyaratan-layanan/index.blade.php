@@ -5,8 +5,8 @@
 
     <!-- Page Heading -->
     <div class="d-flex justify-content-between align-items-center mb-2">
-        <h1 class="h3 text-gray-800">Data Layanan</h1>
-        <a href="{{ route('layanan.create') }}" class="btn btn-primary">Tambah</a>
+        <h1 class="h3 text-gray-800">Persyaratan: {{ $layanan->nama_layanan }}</h1>
+        <a href="{{ route('layanan.syarat.create', $layanan->id) }}" class="btn btn-primary">Tambah</a>
     </div>
 
     <!-- DataTales Example -->
@@ -16,8 +16,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Layanan</th>
-                            <th>Status</th>
                             <th>Persyaratan</th>
                             <th width="20%">Action</th>
                         </tr>
@@ -42,15 +40,9 @@ $(document).ready(function() {
             responsive: true,
             processing: true,
             serverSide: true,
-            ajax: "{{ route('layanan.index') }}",
+            ajax: "{{ route('layanan.syarat.index', $layanan->id) }}",
             columns: [
-                {data: 'nama_layanan', name: 'nama_layanan'},
-                {data: function(data) {
-                    return data.status_layanan == 1 ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-danger">Non-Aktif</span>'
-                }, name: 'status_layanan'},
-                {data: function(data) {
-                    return '<a href="/layanan/' + data.id  +'/syarat" class="btn btn-sm btn-info">Persyaratan</a>'
-                }, name: 'persyaratan'},
+                {data: 'persyaratan', name: 'persyaratan'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
     });
