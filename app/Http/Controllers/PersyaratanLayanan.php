@@ -81,8 +81,11 @@ class PersyaratanLayanan extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $idLayanan, string $idSyarat)
     {
-        //
+        $layanan = Layanan::findOrFail($idLayanan);
+        $syarat = $layanan->persyaratan()->findOrFail($idSyarat);
+        $syarat->delete();
+        return redirect()->route('layanan.syarat.index', $layanan->id);
     }
 }
