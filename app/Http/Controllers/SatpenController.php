@@ -34,7 +34,7 @@ class SatpenController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.satpen.create');
     }
 
     /**
@@ -42,7 +42,8 @@ class SatpenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Satpen::create($request->all());
+        return redirect()->route('satpen.index');
     }
 
     /**
