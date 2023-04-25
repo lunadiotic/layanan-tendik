@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('layanan', App\Http\Controllers\LayananController::class)->middleware('auth');
 Route::resource('layanan.syarat', App\Http\Controllers\SyaratLayananController::class)->middleware('auth');
 Route::resource('golongan', App\Http\Controllers\GolonganController::class)->middleware('auth');
+Route::resource('satpen', App\Http\Controllers\SatpenController::class)->middleware('auth');

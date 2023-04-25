@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LayananSeeder::class);
         $this->call(PersyaratanSeeder::class);
         $this->call(GolonganSeeder::class);
+        $this->call(SatpenSeeder::class);
     }
 }
