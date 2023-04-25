@@ -37,4 +37,17 @@ class LayananController extends Controller
         Layanan::create($request->all());
         return redirect()->route('layanan.index');
     }
+
+    public function edit($id)
+    {
+        $model = Layanan::findOrFail($id);
+        return view('pages.layanan.edit', compact('model'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $model = Layanan::findOrFail($id);
+        $model->update($request->all());
+        return redirect()->route('layanan.index');
+    }
 }
