@@ -20,8 +20,24 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Master Data
     </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#masterData" aria-expanded="true"
+            aria-controls="masterData">
+            <i class="fas fa-fw fa-database"></i>
+            <span>Master Data</span>
+        </a>
+        <div id="masterData" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('layanan.index') }}">Layanan</a>
+                <a class="collapse-item" href="#">Persyaratan</a>
+                <a class="collapse-item" href="#">Golongan</a>
+                <a class="collapse-item" href="#">Satpen</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
