@@ -78,6 +78,8 @@ class GolonganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $golongan = Golongan::findOrFail($id);
+        $golongan->delete();
+        return redirect()->route('golongan.index');
     }
 }
