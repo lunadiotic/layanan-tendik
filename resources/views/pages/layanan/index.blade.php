@@ -4,7 +4,10 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Layanan</h1>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h1 class="h3 text-gray-800">Data Layanan</h1>
+        <a href="{{ route('layanan.create') }}" class="btn btn-primary">Tambah</a>
+    </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -15,7 +18,7 @@
                         <tr>
                             <th>Layanan</th>
                             <th>Status</th>
-                            <th></th>
+                            <th width="20%">Action</th>
                         </tr>
                     </thead>
                     <tbody></tbody>

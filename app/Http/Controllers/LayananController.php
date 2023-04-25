@@ -26,4 +26,15 @@ class LayananController extends Controller
         }
         return view('pages.layanan.index');
     }
+
+    public function create()
+    {
+        return view('pages.layanan.create');
+    }
+
+    public function store(Request $request)
+    {
+        Layanan::create($request->all());
+        return redirect()->route('layanan.index');
+    }
 }
