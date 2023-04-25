@@ -6,7 +6,7 @@ use App\Models\Layanan;
 use Illuminate\Http\Request;
 use DataTables;
 
-class PersyaratanLayanan extends Controller
+class SyaratLayananController extends Controller
 {
     /**
      * Display a listing of the resource.
