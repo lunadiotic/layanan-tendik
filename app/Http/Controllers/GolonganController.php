@@ -34,7 +34,7 @@ class GolonganController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.golongan.create');
     }
 
     /**
@@ -42,7 +42,8 @@ class GolonganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Golongan::create($request->all());
+        return redirect()->route('golongan.index');
     }
 
     /**
