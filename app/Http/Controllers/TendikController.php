@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Golongan;
+use App\Models\Satpen;
 use App\Models\Tendik;
 use Illuminate\Http\Request;
 use DataTables;
@@ -34,7 +36,9 @@ class TendikController extends Controller
      */
     public function create()
     {
-        //
+        $golongan = Golongan::pluck('nama_golongan', 'id');
+        $satpen = Satpen::pluck('nama_satpen', 'id');
+        return view('pages.tendik.create', compact('golongan', 'satpen'));
     }
 
     /**
@@ -42,7 +46,8 @@ class TendikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tendik::create($request->all());
+        return redirect()->route('tendik.index');
     }
 
     /**

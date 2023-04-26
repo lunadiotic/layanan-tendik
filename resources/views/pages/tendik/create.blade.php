@@ -5,7 +5,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Form Satpen</h1>
+        <h1 class="h3 mb-0 text-gray-800">Form Tendik</h1>
     </div>
 
     <div class="row">
@@ -15,44 +15,48 @@
             <!-- Default Card Example -->
             <div class="card mb-4">
                 <div class="card-header">
-                    Tambah Satpen
+                    Tambah Tendik
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('satpen.store') }}" method="POST">
+                    <form action="{{ route('tendik.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="nama_satpen">Nama Satpen</label>
-                            <input type="text" class="form-control" id="nama_satpen" name="nama_satpen" required>
+                            <label for="nip">NIP</label>
+                            <input type="text" class="form-control" id="nip" name="nip" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama_tendik">Nama Tendik</label>
+                            <input type="text" class="form-control" id="nama_tendik" name="nama_tendik" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="golongan_id">Golongan</label>
+                            <select class="form-control" id="golongan_id" name="golongan_id" required>
+                                <option value="">Pilih Golongan</option>
+                                @foreach ($golongan as $key => $value)
+                                <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="satpen_id">Satpen</label>
+                            <select class="form-control" id="satpen_id" name="satpen_id" required>
+                                <option value="">Pilih Golongan</option>
+                                @foreach ($satpen as $key => $value)
+                                <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="jenjang">Jenjang</label>
                             <input type="text" class="form-control" id="jenjang" name="jenjang" required>
                         </div>
                         <div class="form-group">
-                            <label for="kecamatan">Kecamatan</label>
-                            <input type="text" class="form-control" id="kecamatan" name="kecamatan" required>
+                            <label for="status">Status</label>
+                            <input type="text" class="form-control" id="status" name="status" required>
                         </div>
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
-                            <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control"
-                                required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="detail_satpen">Detail</label>
-                            <textarea name="detail_satpen" id="detail_satpen" cols="30" rows="3" class="form-control"
-                                required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status_satpen_1" name="status_satpen"
-                                    class="custom-control-input" value="1" checked>
-                                <label class="custom-control-label" for="status_satpen_1">Aktif</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status_satpen_2" name="status_satpen"
-                                    class="custom-control-input" value="0">
-                                <label class="custom-control-label" for="status_satpen_2">Non-Aktif</label>
-                            </div>
+                            <label for="status_detail">Status Detail</label>
+                            <input type="text" class="form-control" id="status_detail" name="status_detail" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
