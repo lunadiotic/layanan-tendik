@@ -5,7 +5,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Form Satpen</h1>
+        <h1 class="h3 mb-0 text-gray-800">Form Tendik</h1>
     </div>
 
     <div class="row">
@@ -15,49 +15,55 @@
             <!-- Default Card Example -->
             <div class="card mb-4">
                 <div class="card-header">
-                    Ubah Satpen
+                    Ubah Tendik
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('satpen.update', $satpen->id) }}" method="POST">
+                    <form action="{{ route('tendik.update', $tendik->id) }}" method="POST">
                         @csrf @method('PUT')
                         <div class="form-group">
-                            <label for="nama_satpen">Nama Satpen</label>
-                            <input type="text" class="form-control" id="nama_satpen" name="nama_satpen"
-                                value="{{ $satpen->nama_satpen }}" required>
+                            <label for="nip">NIP</label>
+                            <input type="text" class="form-control" id="nip" name="nip" required
+                                value="{{ $tendik->nip }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama_tendik">Nama Tendik</label>
+                            <input type="text" class="form-control" id="nama_tendik" name="nama_tendik" required
+                                value="{{ $tendik->nama_tendik }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="golongan_id">Golongan</label>
+                            <select class="form-control" id="golongan_id" name="golongan_id" required>
+                                <option value="">Pilih Golongan</option>
+                                @foreach ($golongan as $key => $value)
+                                <option value="{{ $key }}" {{ $tendik->golongan_id == $key ? 'selected' : ''}} >{{
+                                    $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="satpen_id">Satpen</label>
+                            <select class="form-control" id="satpen_id" name="satpen_id" required>
+                                <option value="">Pilih Golongan</option>
+                                @foreach ($satpen as $key => $value)
+                                <option value="{{ $key }}" {{ $tendik->satpen_id == $key ? 'selected' : ''}}>{{ $value
+                                    }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="jenjang">Jenjang</label>
-                            <input type="text" class="form-control" id="jenjang" name="jenjang"
-                                value="{{ $satpen->jenjang }}" required>
+                            <input type="text" class="form-control" id="jenjang" name="jenjang" required
+                                value="{{ $tendik->jenjang }}">
                         </div>
                         <div class="form-group">
-                            <label for="kecamatan">Kecamatan</label>
-                            <input type="text" class="form-control" id="kecamatan" name="kecamatan"
-                                value="{{ $satpen->kecamatan }}" required>
+                            <label for="status">Status</label>
+                            <input type="text" class="form-control" id="status" name="status" required
+                                value="{{ $tendik->status }}">
                         </div>
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
-                            <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control"
-                                required>{{ $satpen->alamat }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="detail_satpen">Detail</label>
-                            <textarea name="detail_satpen" id="detail_satpen" cols="30" rows="3" class="form-control"
-                                required>{{ $satpen->detail_satpen }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status_satpen_1" name="status_satpen"
-                                    class="custom-control-input" value="1" {{ $satpen->status_satpen == 1 ? 'checked' :
-                                '' }}>
-                                <label class="custom-control-label" for="status_satpen_1">Aktif</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status_satpen_2" name="status_satpen"
-                                    class="custom-control-input" value="0" {{ $satpen->status_satpen == 0 ? 'checked' :
-                                '' }}>
-                                <label class="custom-control-label" for="status_satpen_2">Non-Aktif</label>
-                            </div>
+                            <label for="status_detail">Status Detail</label>
+                            <input type="text" class="form-control" id="status_detail" name="status_detail" required
+                                value="{{ $tendik->status_detail }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

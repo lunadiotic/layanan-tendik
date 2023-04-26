@@ -63,7 +63,10 @@ class TendikController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tendik = Tendik::findOrFail($id);
+        $golongan = Golongan::pluck('nama_golongan', 'id');
+        $satpen = Satpen::pluck('nama_satpen', 'id');
+        return view('pages.tendik.edit', compact('tendik', 'golongan', 'satpen'));
     }
 
     /**
@@ -71,7 +74,9 @@ class TendikController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tendik = Tendik::findOrFail($id);
+        $tendik->update($request->all());
+        return redirect()->route('tendik.index');
     }
 
     /**
