@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,4 @@ Route::resource('layanan', App\Http\Controllers\LayananController::class)->middl
 Route::resource('layanan.syarat', App\Http\Controllers\SyaratLayananController::class)->middleware('auth');
 Route::resource('golongan', App\Http\Controllers\GolonganController::class)->middleware('auth');
 Route::resource('satpen', App\Http\Controllers\SatpenController::class)->middleware('auth');
+Route::resource('tendik', App\Http\Controllers\TendikController::class)->middleware('auth');
