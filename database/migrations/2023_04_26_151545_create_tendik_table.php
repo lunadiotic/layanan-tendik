@@ -18,8 +18,8 @@ return new class extends Migration
             $table->enum('jenjang', ['sd', 'smp']);
             $table->enum('status', ['guru', 'kepala sekolah']);
             $table->string('status_detail')->nullable();
-            $table->foreignId('golongan_id')->constrained('golongan')->onDelete('cascade');
-            $table->foreignId('satpen_id')->constrained('satpen')->onDelete('cascade');
+            $table->foreignId('golongan_id')->constrained('golongan');
+            $table->foreignId('satpen_id')->constrained('satpen');
             $table->timestamps();
         });
     }

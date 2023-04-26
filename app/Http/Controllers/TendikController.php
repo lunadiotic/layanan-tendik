@@ -84,6 +84,8 @@ class TendikController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tendik = Tendik::findOrFail($id);
+        $tendik->delete();
+        return redirect()->route('tendik.index');
     }
 }
