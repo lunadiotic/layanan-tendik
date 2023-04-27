@@ -16,8 +16,17 @@
                         <div class="form-group">
                             <input type="text"
                                 class="form-control form-control-user @error('name') is-invalid @enderror" name="name"
-                                value="{{ old('name') }}" id="exampleLastName" placeholder="Full Name" required>
+                                value="{{ old('name') }}" id="" placeholder="Full Name" required>
                             @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user @error('nip') is-invalid @enderror"
+                                name="nip" value="{{ old('nip') }}" id="" placeholder="NIP" required>
+                            @error('nip')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -26,7 +35,7 @@
                         <div class="form-group">
                             <input type="email"
                                 class="form-control form-control-user @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" id="exampleInputEmail" placeholder="Email Address" required>
+                                value="{{ old('email') }}" id="" placeholder="Email Address" required>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -36,7 +45,7 @@
                         <div class="form-group">
                             <input type="password"
                                 class="form-control form-control-user @error('password') is-invalid @enderror"
-                                name="password" required id="exampleInputPassword" placeholder="Password">
+                                name="password" required id="" placeholder="Password">
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -44,7 +53,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
+                            <input type="password" class="form-control form-control-user" id=""
                                 name="password_confirmation" required placeholder="Repeat Password">
                         </div>
                         <button type="submit" class="btn btn-primary btn-user btn-block">

@@ -30,4 +30,9 @@ class Tendik extends Model
     {
         return $this->belongsTo(Golongan::class);
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'nip', 'nip');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Validators\NipRegisteredValidator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Extend validators for nip
+        (new NipRegisteredValidator)->register();
     }
 }
