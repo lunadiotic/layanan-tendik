@@ -15,6 +15,7 @@ class LayananSeeder extends Seeder
     {
         Layanan::create([
             'nama_layanan' => 'Izin Memimpin',
+            'nama_layanan_slug' => 'izin-memimpin',
             'status_layanan' => true,
         ]);
     }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('layanan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_layanan');
+            $table->string('nama_layanan_slug')->unique();
             $table->boolean('status_layanan');
             $table->timestamps();
         });

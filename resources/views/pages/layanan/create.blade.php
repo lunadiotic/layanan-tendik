@@ -25,6 +25,11 @@
                             <input type="text" class="form-control" id="nama_layanan" name="nama_layanan" required>
                         </div>
                         <div class="form-group">
+                            <label for="nama_layanan_slug">Nama Layanan Slug</label>
+                            <input type="text" class="form-control" id="nama_layanan_slug" name="nama_layanan_slug"
+                                required>
+                        </div>
+                        <div class="form-group">
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="status_layanan_1" name="status_layanan"
                                     class="custom-control-input" value="1" checked>

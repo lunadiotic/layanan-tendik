@@ -17,7 +17,7 @@ class TendikSeeder extends Seeder
             'nip' => '123456789',
             'nama_tendik' => 'Tendik 1',
             'jenjang' => 'sd',
-            'status' => 'guru',
+            'status' => 'kepala sekolah',
             'status_detail' => '-',
             'golongan_id' => 1,
             'satpen_id' => 1

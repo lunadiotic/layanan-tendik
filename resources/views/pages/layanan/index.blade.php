@@ -17,6 +17,7 @@
                     <thead>
                         <tr>
                             <th>Layanan</th>
+                            <th>Slug</th>
                             <th>Status</th>
                             <th>Persyaratan</th>
                             <th width="20%">Action</th>
@@ -45,6 +46,7 @@ $(document).ready(function() {
             ajax: "{{ route('layanan.index') }}",
             columns: [
                 {data: 'nama_layanan', name: 'nama_layanan'},
+                {data: 'nama_layanan_slug', name: 'nama_layanan_slug'},
                 {data: function(data) {
                     return data.status_layanan == 1 ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-danger">Non-Aktif</span>'
                 }, name: 'status_layanan'},
