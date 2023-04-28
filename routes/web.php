@@ -28,3 +28,5 @@ Route::resource('satpen', App\Http\Controllers\SatpenController::class)->except(
 Route::resource('tendik', App\Http\Controllers\TendikController::class)->except(['show'])->middleware('auth');
 
 Route::get('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'index'])->name('pengajuan.index');
+Route::get('/pengajuan/{layanan}/create', [App\Http\Controllers\PengajuanController::class, 'create'])->name('pengajuan.create');
+Route::post('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'store'])->name('pengajuan.store');

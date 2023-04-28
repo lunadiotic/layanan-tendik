@@ -6,7 +6,7 @@
     <!-- Page Heading -->
     <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h3 text-gray-800">Data Pengajuan: {{ $layanan->nama_layanan }} - {{ $tendik->nama_tendik }}</h1>
-        <a href="#" class="btn btn-primary">Tambah</a>
+        <a href="{{ route('pengajuan.create', $layanan->nama_layanan_slug) }}" class="btn btn-primary">Tambah</a>
     </div>
 
     <!-- DataTales Example -->
@@ -57,7 +57,11 @@ $(document).ready(function() {
                     return '<a href="' + data.dokumen_persyaratan  +'" class="btn btn-sm btn-info">Link</a>'
                 }, name: 'dokumen_persyaratan'},
                 {data: function(data) {
-                    return '<a href="' + data.dokumen_sk  +'" class="btn btn-sm btn-info">Link</a>'
+                    if(data.dokumen_sk !== null) {
+                        return '<a href="' + data.dokumen_sk  +'" class="btn btn-sm btn-info">Link</a>'
+                    } else {
+                        return '-'
+                    }
                 }, name: 'dokumen_sk'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]

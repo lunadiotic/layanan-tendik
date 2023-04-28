@@ -26,4 +26,23 @@ class PengajuanController extends Controller
         }
         return view('pages.pengajuan.index', compact('layanan', 'tendik'));
     }
+
+    public function create($layanan)
+    {
+        $layanan = Layanan::where('nama_layanan_slug', $layanan)->first();
+        return view('pages.pengajuan.create', compact('layanan'));
+    }
+
+    public function store(Request $request, $layanan)
+    {
+        $layanan = Layanan::where('nama_layanan_slug', $layanan)->first();
+        $tendik = Auth::user()->tendik;
+        $tendik->pengajuan()->create([
+            'layanan_id' => $layanan->id,
+            'satpen_id' => $request->satpen_id,
+            'dokumen_persyaratan' => $request->dokumen_persyaratan,
+        ]);
+
+        return redirect()->route('pengajuan.index', $layanan->nama_layanan_slug);
+    }
 }
