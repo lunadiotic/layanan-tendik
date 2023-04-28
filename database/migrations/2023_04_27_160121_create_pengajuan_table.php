@@ -16,11 +16,12 @@ return new class extends Migration
             $table->string('dokumen_persyaratan');
             $table->string('dokumen_sk')->nullable();
             $table->enum('status', ['menunggu', 'proses', 'selesai', 'ditolak'])->default('menunggu');
-            $table->date('tanggal_terbit');
-            $table->date('tanggal_selesai');
+            $table->date('tanggal_terbit')->nullable();
+            $table->date('tanggal_selesai')->nullable();
             $table->text('keterangan')->nullable();
             $table->foreignId('tendik_id')->constrained('tendik')->onDelete('cascade');
             $table->foreignId('layanan_id')->constrained('layanan')->onDelete('cascade');
+            $table->foreignId('satpen_id')->nullable()->constrained('satpen')->onDelete('cascade');
             $table->timestamps();
         });
     }

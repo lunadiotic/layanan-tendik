@@ -50,7 +50,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pilih Layanan:</h6>
                 @foreach ($layananMenu as $layanan)
-                <a class="collapse-item" href="{{ $layanan->nama_layanan_slug }}">{{ $layanan->nama_layanan }}</a>
+                <a class="collapse-item" href="{{ route('pengajuan.index',$layanan->nama_layanan_slug) }}">{{
+                    $layanan->nama_layanan }}</a>
                 @endforeach
             </div>
         </div>

@@ -11,6 +11,8 @@ class PengajuanPersyaratan extends Model
 
     protected $guarded = [];
 
+    protected $table = 'pengajuan_persyaratan';
+
     public function persyaratan()
     {
         return $this->belongsTo(PersyaratanLayanan::class, 'persyaratan_id', 'id');

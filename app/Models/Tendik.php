@@ -35,4 +35,9 @@ class Tendik extends Model
     {
         return $this->hasOne(User::class, 'nip', 'nip');
     }
+
+    public function pengajuan()
+    {
+        return $this->hasMany(Pengajuan::class);
+    }
 }

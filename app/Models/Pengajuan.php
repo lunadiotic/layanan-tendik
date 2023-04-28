@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +12,8 @@ class Pengajuan extends Model
 
     protected $guarded = [];
 
+    protected $table = 'pengajuan';
+
     public function layanan()
     {
         return $this->belongsTo(Layanan::class);
@@ -19,6 +22,11 @@ class Pengajuan extends Model
     public function tendik()
     {
         return $this->belongsTo(Tendik::class);
+    }
+
+    public function satpen()
+    {
+        return $this->belongsTo(Satpen::class);
     }
 
     public function syarat()
