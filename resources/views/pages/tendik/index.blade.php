@@ -20,7 +20,7 @@
                             <th>Nama</th>
                             <th>Satpen</th>
                             <th>Pangkat/Golongan</th>
-                            <th>Jenjang</th>
+                            <th>Pendidikan</th>
                             <th width="10%">Action</th>
                         </tr>
                     </thead>
@@ -50,7 +50,7 @@ $(document).ready(function() {
                 {data: 'nama_tendik', name: 'nama_tendik'},
                 {data: 'satpen.nama_satpen', name: 'satpen.nama_satpen'},
                 {data: 'golongan.nama_golongan', name: 'golongan.nama_golongan'},
-                {data: 'jenjang', name: 'jenjang'},
+                {data: 'pendidikan', name: 'pendidikan'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
     });

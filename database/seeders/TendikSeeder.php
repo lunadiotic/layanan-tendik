@@ -16,7 +16,7 @@ class TendikSeeder extends Seeder
         Tendik::create([
             'nip' => '123456789',
             'nama_tendik' => 'Tendik 1',
-            'jenjang' => 'sd',
+            'pendidikan' => 's1',
             'status' => 'kepala sekolah',
             'status_detail' => '-',
             'golongan_id' => 1,

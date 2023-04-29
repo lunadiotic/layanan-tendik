@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nip');
             $table->string('nama_tendik');
-            $table->enum('jenjang', ['sd', 'smp']);
+            $table->enum('pendidikan', ['sd', 'smp', 'sma', 's1', 's2', 's3']);
             $table->enum('status', ['guru', 'kepala sekolah']);
             $table->string('status_detail')->nullable();
             $table->foreignId('golongan_id')->constrained('golongan');

@@ -47,8 +47,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="jenjang">Jenjang</label>
-                            <input type="text" class="form-control" id="jenjang" name="jenjang" required>
+                            <label for="pendidikan">Pendidikan</label>
+                            <input type="text" class="form-control" id="pendidikan" name="pendidikan" required>
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>

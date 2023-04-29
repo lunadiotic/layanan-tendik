@@ -14,7 +14,7 @@ class Tendik extends Model
     protected $fillable = [
         'nip',
         'nama_tendik',
-        'jenjang',
+        'pendidikan',
         'status',
         'status_detail',
         'golongan_id',
