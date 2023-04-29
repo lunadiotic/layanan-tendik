@@ -57,6 +57,23 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#daftarPengajuan"
+            aria-expanded="true" aria-controls="daftarPengajuan">
+            <i class="fas fa-fw fa-file-signature"></i>
+            <span>Daftar Pengajuan</span>
+        </a>
+        <div id="daftarPengajuan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Pilih Layanan:</h6>
+                @foreach ($layananMenu as $layanan)
+                <a class="collapse-item" href="{{ route('daftar.pengajuan.index',$layanan->nama_layanan_slug) }}">{{
+                    $layanan->nama_layanan }}</a>
+                @endforeach
+            </div>
+        </div>
+    </li>
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

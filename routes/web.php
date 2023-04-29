@@ -30,3 +30,5 @@ Route::resource('tendik', App\Http\Controllers\TendikController::class)->except(
 Route::get('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'index'])->name('pengajuan.index');
 Route::get('/pengajuan/{layanan}/create', [App\Http\Controllers\PengajuanController::class, 'create'])->name('pengajuan.create');
 Route::post('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'store'])->name('pengajuan.store');
+
+Route::get('daftar/pengajuan/{layanan}', [App\Http\Controllers\DaftarPengajuanController::class, 'index'])->name('daftar.pengajuan.index');
