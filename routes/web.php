@@ -32,3 +32,5 @@ Route::get('/pengajuan/{layanan}/create', [App\Http\Controllers\PengajuanControl
 Route::post('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'store'])->name('pengajuan.store');
 
 Route::get('daftar/pengajuan/{layanan}', [App\Http\Controllers\DaftarPengajuanController::class, 'index'])->name('daftar.pengajuan.index');
+Route::get('daftar/pengajuan/{layanan}/proses/{pengajuan_id}', [App\Http\Controllers\DaftarPengajuanController::class, 'proses'])->name('daftar.pengajuan.proses');
+Route::post('daftar/pengajuan/{layanan}/proses/{pengajuan_id}', [App\Http\Controllers\DaftarPengajuanController::class, 'storeProses'])->name('daftar.pengajuan.proses.store');

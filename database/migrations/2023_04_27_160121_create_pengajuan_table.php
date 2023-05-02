@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('dokumen_persyaratan');
             $table->string('dokumen_sk')->nullable();
-            $table->enum('status', ['menunggu', 'proses', 'selesai', 'ditolak'])->default('menunggu');
+            $table->enum('status', ['menunggu', 'proses', 'selesai', 'revisi', 'ditolak'])->default('menunggu');
             $table->date('tanggal_terbit')->nullable();
             $table->date('tanggal_selesai')->nullable();
             $table->text('keterangan')->nullable();

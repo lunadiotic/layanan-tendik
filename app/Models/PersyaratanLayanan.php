@@ -20,4 +20,9 @@ class PersyaratanLayanan extends Model
     {
         return $this->belongsTo(Layanan::class);
     }
+
+    public function pengajuan()
+    {
+        return $this->belongsToMany(Pengajuan::class, 'pengajuan_persyaratan', 'persyaratan_id', 'pengajuan_id');
+    }
 }
