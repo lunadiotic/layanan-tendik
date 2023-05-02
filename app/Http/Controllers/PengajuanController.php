@@ -30,7 +30,7 @@ class PengajuanController extends Controller
     public function create($layanan)
     {
         $layanan = Layanan::where('nama_layanan_slug', $layanan)->first();
-        return view('pages.pengajuan.create', compact('layanan'));
+        return view('pages.pengajuan.' . $layanan->nama_layanan_slug . '-create', compact('layanan'));
     }
 
     public function store(Request $request, $layanan)
