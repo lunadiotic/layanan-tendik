@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\PersyaratanLayanan;
+use App\Models\LayananSyarat;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +13,7 @@ class PersyaratanSeeder extends Seeder
      */
     public function run(): void
     {
-        PersyaratanLayanan::create([
+        LayananSyarat::create([
             'layanan_id' => 1,
             'persyaratan' => 'Dokumen xxx'
         ]);

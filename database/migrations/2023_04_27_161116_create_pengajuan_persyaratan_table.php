@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pengajuan_persyaratan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pengajuan_id')->constrained('pengajuan')->onDelete('cascade');
-            $table->foreignId('persyaratan_id')->constrained('persyaratan_layanan')->onDelete('cascade');
+            $table->foreignId('persyaratan_id')->constrained('layanan_syarat')->onDelete('cascade');
             $table->timestamps();
         });
     }

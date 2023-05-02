@@ -15,6 +15,6 @@ class PengajuanPersyaratan extends Model
 
     public function persyaratan()
     {
-        return $this->belongsTo(PersyaratanLayanan::class, 'persyaratan_id', 'id');
+        return $this->belongsTo(LayananSyarat::class, 'persyaratan_id', 'id');
     }
 }
