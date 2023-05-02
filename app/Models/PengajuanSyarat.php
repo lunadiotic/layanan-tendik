@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PengajuanPersyaratan extends Model
+class PengajuanSyarat extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    protected $table = 'pengajuan_persyaratan';
+    protected $table = 'pengajuan_syarat';
 
     public function persyaratan()
     {

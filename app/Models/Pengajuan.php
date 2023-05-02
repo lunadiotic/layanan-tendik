@@ -31,6 +31,6 @@ class Pengajuan extends Model
 
     public function syarat()
     {
-        return $this->belongsToMany(LayananSyarat::class, 'pengajuan_persyaratan', 'pengajuan_id', 'persyaratan_id');
+        return $this->belongsToMany(LayananSyarat::class, 'pengajuan_syarat', 'pengajuan_id', 'persyaratan_id');
     }
 }
