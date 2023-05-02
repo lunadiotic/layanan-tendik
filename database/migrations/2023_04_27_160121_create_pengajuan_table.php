@@ -13,15 +13,20 @@ return new class extends Migration
     {
         Schema::create('pengajuan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tendik_id')->constrained('tendik')->onDelete('cascade');
+            $table->foreignId('layanan_id')->constrained('layanan')->onDelete('cascade');
             $table->string('dokumen_persyaratan');
             $table->string('dokumen_sk')->nullable();
             $table->enum('status', ['menunggu', 'proses', 'selesai', 'revisi', 'ditolak'])->default('menunggu');
+            $table->text('keterangan')->nullable();
+            // Izin Memimpin
             $table->date('tanggal_terbit')->nullable();
             $table->date('tanggal_selesai')->nullable();
-            $table->text('keterangan')->nullable();
-            $table->foreignId('tendik_id')->constrained('tendik')->onDelete('cascade');
-            $table->foreignId('layanan_id')->constrained('layanan')->onDelete('cascade');
             $table->foreignId('satpen_id')->nullable()->constrained('satpen')->onDelete('cascade');
+            // Kenaikan Pangkat
+            $table->foreignId('unit_kerja')->nullable()->constrained('satpen')->onDelete('cascade');
+            $table->foreignId('golongan_lama')->nullable()->constrained('golongan');
+            $table->foreignId('golongan_baru')->nullable()->constrained('golongan');
             $table->timestamps();
         });
     }
