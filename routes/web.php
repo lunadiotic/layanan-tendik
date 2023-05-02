@@ -27,12 +27,14 @@ Route::group(['middleware' => ['role:admin', 'auth']], function () {
     Route::resource('golongan', App\Http\Controllers\GolonganController::class)->except(['show']);
     Route::resource('satpen', App\Http\Controllers\SatpenController::class)->except(['show']);
     Route::resource('tendik', App\Http\Controllers\TendikController::class)->except(['show']);
+    Route::get('daftar/pengajuan/{layanan}', [App\Http\Controllers\DaftarPengajuanController::class, 'index'])->name('daftar.pengajuan.index');
+    Route::get('daftar/pengajuan/{layanan}/proses/{pengajuan_id}', [App\Http\Controllers\DaftarPengajuanController::class, 'proses'])->name('daftar.pengajuan.proses');
+    Route::post('daftar/pengajuan/{layanan}/proses/{pengajuan_id}', [App\Http\Controllers\DaftarPengajuanController::class, 'storeProses'])->name('daftar.pengajuan.proses.store');
 });
 
-Route::get('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'index'])->name('pengajuan.index');
-Route::get('/pengajuan/{layanan}/create', [App\Http\Controllers\PengajuanController::class, 'create'])->name('pengajuan.create');
-Route::post('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'store'])->name('pengajuan.store');
 
-Route::get('daftar/pengajuan/{layanan}', [App\Http\Controllers\DaftarPengajuanController::class, 'index'])->name('daftar.pengajuan.index');
-Route::get('daftar/pengajuan/{layanan}/proses/{pengajuan_id}', [App\Http\Controllers\DaftarPengajuanController::class, 'proses'])->name('daftar.pengajuan.proses');
-Route::post('daftar/pengajuan/{layanan}/proses/{pengajuan_id}', [App\Http\Controllers\DaftarPengajuanController::class, 'storeProses'])->name('daftar.pengajuan.proses.store');
+Route::group(['middleware' => ['role:tendik', 'auth']], function () {
+    Route::get('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'index'])->name('pengajuan.index');
+    Route::get('/pengajuan/{layanan}/create', [App\Http\Controllers\PengajuanController::class, 'create'])->name('pengajuan.create');
+    Route::post('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'store'])->name('pengajuan.store');
+});
