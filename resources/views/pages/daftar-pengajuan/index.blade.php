@@ -6,7 +6,6 @@
     <!-- Page Heading -->
     <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h3 text-gray-800">Daftar Pengajuan: {{ $layanan->nama_layanan }}</h1>
-        <a href="{{ route('pengajuan.create', $layanan->nama_layanan_slug) }}" class="btn btn-primary">Tambah</a>
     </div>
 
     <!-- DataTales Example -->
