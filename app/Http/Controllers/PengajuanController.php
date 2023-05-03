@@ -24,13 +24,13 @@ class PengajuanController extends Controller
                 ->addIndexColumn()
                 ->rawColumns(['action'])->make(true);
         }
-        return view('pages.pengajuan.index', compact('layanan', 'tendik'));
+        return view('pages.pengajuan.' . $layanan->nama_layanan_slug . '.index', compact('layanan', 'tendik'));
     }
 
     public function create($layanan)
     {
         $layanan = Layanan::where('nama_layanan_slug', $layanan)->first();
-        return view('pages.pengajuan.' . $layanan->nama_layanan_slug . '-create', compact('layanan'));
+        return view('pages.pengajuan.' . $layanan->nama_layanan_slug . '.create', compact('layanan'));
     }
 
     public function store(Request $request, $layanan)

@@ -5,7 +5,8 @@
 
     <!-- Page Heading -->
     <div class="d-flex justify-content-between align-items-center mb-2">
-        <h1 class="h3 text-gray-800">Data Layanan</h1>
+        <h1 class="h3 text-gray-800">Data Pengajuan: {{ $layanan->nama_layanan }} - {{ $tendik->nama_tendik }}</h1>
+        <a href="{{ route('pengajuan.create', $layanan->nama_layanan_slug) }}" class="btn btn-primary">Tambah</a>
     </div>
 
     <!-- DataTales Example -->
@@ -15,10 +16,13 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Layanan</th>
-                            <th>Slug</th>
+                            <th>Tanggal Pengajuan</th>
+                            <th>Nama Satpen</th>
+                            <th>Tanggal Terbit</th>
+                            <th>Tanggal Selesai</th>
                             <th>Status</th>
                             <th>Persyaratan</th>
+                            <th>SK</th>
                             <th width="20%">Action</th>
                         </tr>
                     </thead>
@@ -42,16 +46,23 @@ $(document).ready(function() {
             responsive: true,
             processing: true,
             serverSide: true,
-            ajax: "{{ route('layanan.index') }}",
+            ajax: "{{ route('pengajuan.index', $layanan->nama_layanan_slug) }}",
             columns: [
-                {data: 'nama_layanan', name: 'nama_layanan'},
-                {data: 'nama_layanan_slug', name: 'nama_layanan_slug'},
+                {data: 'created_at', name: 'created_at'},
+                {data: 'satpen.nama_satpen', name: 'satpen.nama_satpen'},
+                {data: 'tanggal_terbit', name: 'tanggal_terbit'},
+                {data: 'tanggal_selesai', name: 'tanggal_selesai'},
+                {data: 'status', name: 'status'},
                 {data: function(data) {
-                    return data.status_layanan == 1 ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-danger">Non-Aktif</span>'
-                }, name: 'status_layanan'},
+                    return '<a href="' + data.dokumen_persyaratan  +'" class="btn btn-sm btn-info">Link</a>'
+                }, name: 'dokumen_persyaratan'},
                 {data: function(data) {
-                    return '<a href="/layanan/' + data.id  +'/syarat" class="btn btn-sm btn-info">Persyaratan</a>'
-                }, name: 'persyaratan'},
+                    if(data.dokumen_sk !== null) {
+                        return '<a href="' + data.dokumen_sk  +'" class="btn btn-sm btn-info">Link</a>'
+                    } else {
+                        return '-'
+                    }
+                }, name: 'dokumen_sk'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
     });

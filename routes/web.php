@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['role:admin', 'auth']], function () {
-    Route::resource('layanan', App\Http\Controllers\LayananController::class)->except(['show']);;
+    Route::resource('layanan', App\Http\Controllers\LayananController::class)->except(['create', 'store', 'show']);;
     Route::resource('layanan.syarat', App\Http\Controllers\SyaratLayananController::class)->except(['show']);
     Route::resource('golongan', App\Http\Controllers\GolonganController::class)->except(['show']);
     Route::resource('satpen', App\Http\Controllers\SatpenController::class)->except(['show']);
