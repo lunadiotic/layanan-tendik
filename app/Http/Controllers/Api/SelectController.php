@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Golongan;
 use App\Models\Satpen;
 use Illuminate\Http\Request;
 
-class Select2Controller extends Controller
+class SelectController extends Controller
 {
     public function selectSatpen(Request $request)
     {
@@ -18,6 +19,12 @@ class Select2Controller extends Controller
                 ->where('nama_satpen', 'LIKE', "%$search%")
                 ->get();
         }
+        return response()->json($data);
+    }
+
+    public function selectGolongan()
+    {
+        $data = Golongan::all();
         return response()->json($data);
     }
 }

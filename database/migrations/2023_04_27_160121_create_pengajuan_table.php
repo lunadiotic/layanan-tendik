@@ -24,7 +24,6 @@ return new class extends Migration
             $table->date('tanggal_selesai')->nullable();
             $table->foreignId('satpen_id')->nullable()->constrained('satpen')->onDelete('cascade');
             // Kenaikan Pangkat
-            $table->foreignId('unit_kerja')->nullable()->constrained('satpen')->onDelete('cascade');
             $table->foreignId('golongan_lama')->nullable()->constrained('golongan');
             $table->foreignId('golongan_baru')->nullable()->constrained('golongan');
             $table->timestamps();

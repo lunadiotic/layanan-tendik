@@ -21,12 +21,32 @@
                     <form action="{{ route('pengajuan.store', $layanan->nama_layanan_slug) }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="satpen_id">Satpen</label>
+                            <label for="satpen_id">Unit Kerja</label>
                             <div class="input-group">
                                 <select class="form-control" id="satpen_id" name="satpen_id">
                                     <option value=""> - </option>
                                 </select>
                                 <span class="btn btn-danger" id="clear-satpen">x</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="golongan_lama">Pangkat/Golongan Lama</label>
+                            <div class="input-group">
+                                <select class="form-control" id="golongan_lama" name="golongan_lama">
+                                    @foreach ($golongan as $key => $value)
+                                    <option value="{{ $value->id }}">{{ $value->nama_golongan }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="golongan_baru">Pangkat/Golongan Baru</label>
+                            <div class="input-group">
+                                <select class="form-control " id="golongan_baru" name="golongan_baru">
+                                    @foreach ($golongan as $key => $value)
+                                    <option value="{{ $value->id }}">{{ $value->nama_golongan }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">

@@ -5,8 +5,7 @@
 
     <!-- Page Heading -->
     <div class="d-flex justify-content-between align-items-center mb-2">
-        <h1 class="h3 text-gray-800">Data Pengajuan: {{ $layanan->nama_layanan }} - {{ $tendik->nama_tendik }}</h1>
-        <a href="{{ route('pengajuan.create', $layanan->nama_layanan_slug) }}" class="btn btn-primary">Tambah</a>
+        <h1 class="h3 text-gray-800">Daftar Pengajuan: {{ $layanan->nama_layanan }}</h1>
     </div>
 
     <!-- DataTales Example -->
@@ -17,6 +16,8 @@
                     <thead>
                         <tr>
                             <th>Tanggal Pengajuan</th>
+                            <th>NIP</th>
+                            <th>Nama Guru</th>
                             <th>Nama Satpen</th>
                             <th>Gol.Lama</th>
                             <th>Gol.Baru</th>
@@ -46,9 +47,11 @@ $(document).ready(function() {
             responsive: true,
             processing: true,
             serverSide: true,
-            ajax: "{{ route('pengajuan.index', $layanan->nama_layanan_slug) }}",
+            ajax: "{{ route('daftar.pengajuan.index', $layanan->nama_layanan_slug) }}",
             columns: [
                 {data: 'created_at', name: 'created_at'},
+                {data: 'tendik.nip', name: 'tendik.nip'},
+                {data: 'tendik.nama_tendik', name: 'tendik.nama_tendik'},
                 {data: 'satpen.nama_satpen', name: 'satpen.nama_satpen'},
                 {data: 'golongan_lama.nama_golongan', name: 'golongan_lama.nama_golongan'},
                 {data: 'golongan_baru.nama_golongan', name: 'golongan_baru.nama_golongan'},
