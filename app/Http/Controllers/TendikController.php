@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Golongan;
 use App\Models\Satpen;
 use App\Models\Tendik;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -67,6 +68,10 @@ class TendikController extends Controller
     public function update(Request $request, string $id)
     {
         $tendik = Tendik::findOrFail($id);
+        $user = User::where('nip', $tendik->nip)->firstOrFail();
+        $user->update([
+            'nip' => $request->nip
+        ]);
         $tendik->update($request->all());
         return redirect()->route('tendik.index');
     }
