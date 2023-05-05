@@ -68,10 +68,12 @@ class TendikController extends Controller
     public function update(Request $request, string $id)
     {
         $tendik = Tendik::findOrFail($id);
-        $user = User::where('nip', $tendik->nip)->firstOrFail();
-        $user->update([
-            'nip' => $request->nip
-        ]);
+        if ($tendik->user) {
+            $tendik->user->update([
+                'nip' => $request->nip,
+                'name' => $request->nama_tendik
+            ]);
+        }
         $tendik->update($request->all());
         return redirect()->route('tendik.index');
     }

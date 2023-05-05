@@ -53,11 +53,20 @@ class PengajuanController extends Controller
     {
         $layanan = Layanan::where('nama_layanan_slug', $layanan)->first();
         $tendik = Auth::user()->tendik;
-        $tendik->pengajuan()->create([
+        $inputData = [
             'layanan_id' => $layanan->id,
             'satpen_id' => $request->satpen_id,
             'dokumen_persyaratan' => $request->dokumen_persyaratan,
-        ]);
+        ];
+
+        if ($layanan->nama_layanan_slug == 'kenaikan-pangkat') {
+            $inputData = array_merge($inputData, [
+                'golongan_lama' => $request->golongan_lama,
+                'golongan_baru' => $request->golongan_baru,
+            ]);
+        }
+
+        $tendik->pengajuan()->create($inputData);
 
         return redirect()->route('pengajuan.index', $layanan->nama_layanan_slug);
     }
