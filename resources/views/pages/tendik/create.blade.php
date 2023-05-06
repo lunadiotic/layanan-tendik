@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label for="status_detail">Nama PLT</label>
-                            <input type="text" class="form-control" id="status_detail" name="status_detail" required>
+                            <input type="text" class="form-control" id="status_detail" name="status_detail">
                         </div>
                         <div class="form-group">
                             <label for="korwil">Korwil</label>
@@ -69,15 +69,19 @@
                         </div>
                         <div class="form-group">
                             <label for="no_hp">No.HP</label>
-                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                            <input type="text" class="form-control" id="no_hp" name="no_hp">
                         </div>
                         <div class="form-group">
                             <label for="">Tanggal Pensiun</label>
-                            <input type="date" class="form-control" id="tahun_pensiun" name="tahun_pensiun" required>
+                            <input type="date" class="form-control" id="tahun_pensiun" name="tahun_pensiun">
                         </div>
                         <div class="form-group">
                             <label for="keterangan">Keterangan</label>
-                            <input type="text" class="form-control" id="keterangan" name="keterangan" required>
+                            <input type="text" class="form-control" id="keterangan" name="keterangan">
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

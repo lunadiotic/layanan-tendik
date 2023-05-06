@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('no_hp')->nullable();
             $table->date('tahun_pensiun')->nullable();
             $table->string('keterangan')->nullable();
+            $table->string('alamat')->nullable();
             $table->foreignId('golongan_id')->constrained('golongan');
             $table->foreignId('satpen_id')->constrained('satpen');
             $table->timestamps();
