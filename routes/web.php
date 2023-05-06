@@ -37,4 +37,6 @@ Route::group(['middleware' => ['role:tendik', 'auth']], function () {
     Route::get('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'index'])->name('pengajuan.index');
     Route::get('/pengajuan/{layanan}/create', [App\Http\Controllers\PengajuanController::class, 'create'])->name('pengajuan.create');
     Route::post('/pengajuan/{layanan}', [App\Http\Controllers\PengajuanController::class, 'store'])->name('pengajuan.store');
+    Route::get('/pengajuan/{layanan}/{pengajuan}/edit', [App\Http\Controllers\PengajuanController::class, 'edit'])->name('pengajuan.edit');
+    Route::put('/pengajuan/{layanan}/{pengajuan}/', [App\Http\Controllers\PengajuanController::class, 'update'])->name('pengajuan.update');
 });
