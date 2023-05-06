@@ -39,6 +39,16 @@ class Pengajuan extends Model
         return $this->belongsTo(Golongan::class, 'golongan_baru', 'id');
     }
 
+    public function satpenLama()
+    {
+        return $this->belongsTo(Satpen::class, 'satpen_lama', 'id');
+    }
+
+    public function satpenBaru()
+    {
+        return $this->belongsTo(Satpen::class, 'satpen_baru', 'id');
+    }
+
     public function syarat()
     {
         return $this->belongsToMany(LayananSyarat::class, 'pengajuan_syarat', 'pengajuan_id', 'persyaratan_id');

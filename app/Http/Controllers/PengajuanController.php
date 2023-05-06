@@ -19,6 +19,9 @@ class PengajuanController extends Controller
             if ($layanan->nama_layanan_slug == 'kenaikan-pangkat') {
                 array_push($relations, 'golonganLama', 'golonganBaru');
             }
+            if ($layanan->nama_layanan_slug == 'mutasi') {
+                array_push($relations, 'satpenLama', 'satpenBaru');
+            }
             $model = $tendik->pengajuan()->where('layanan_id', $layanan->id)->with($relations);
             return DataTables::of($model)
                 ->addColumn('action', function ($model) {
@@ -63,6 +66,13 @@ class PengajuanController extends Controller
             $inputData = array_merge($inputData, [
                 'golongan_lama' => $request->golongan_lama,
                 'golongan_baru' => $request->golongan_baru,
+            ]);
+        }
+
+        if ($layanan->nama_layanan_slug == 'mutasi') {
+            $inputData = array_merge($inputData, [
+                'satpen_lama' => $request->satpen_lama,
+                'satpen_baru' => $request->satpen_baru,
             ]);
         }
 

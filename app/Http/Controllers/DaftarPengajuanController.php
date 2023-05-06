@@ -19,6 +19,10 @@ class DaftarPengajuanController extends Controller
                 array_push($relations, 'golonganLama', 'golonganBaru');
             }
 
+            if ($layanan->nama_layanan_slug == 'mutasi') {
+                array_push($relations, 'satpenLama', 'satpenBaru');
+            }
+
             $model = Pengajuan::where('layanan_id', $layanan->id)->with($relations);
 
             return DataTables::of($model)
@@ -71,24 +75,34 @@ class DaftarPengajuanController extends Controller
         $layanan = Layanan::where('nama_layanan_slug', $layanan)->firstOrFail();
         $pengajuan = Pengajuan::findOrFail($pengajuan_id);
 
+        $updatedData = [
+            "keterangan" => $request->keterangan,
+            "dokumen_sk" => $request->dokumen_sk,
+            "status" => $request->status,
+        ];
+
         if ($layanan->nama_layanan_slug == 'izin-memimpin') {
-            $pengajuan->update([
+            $updatedData = array_merge($updatedData, [
                 "tanggal_terbit" => $request->tanggal_terbit,
                 "tanggal_selesai" => $request->tanggal_selesai,
-                "keterangan" => $request->keterangan,
-                "dokumen_sk" => $request->dokumen_sk,
-                "status" => $request->status,
             ]);
+            $pengajuan->update($updatedData);
         }
 
         if ($layanan->nama_layanan_slug == 'kenaikan-pangkat') {
-            $pengajuan->update([
+            $updatedData = array_merge($updatedData, [
                 "golongan_lama" => $request->golongan_lama,
                 "golongan_baru" => $request->golongan_baru,
-                "keterangan" => $request->keterangan,
-                "dokumen_sk" => $request->dokumen_sk,
-                "status" => $request->status,
             ]);
+            $pengajuan->update($updatedData);
+        }
+
+        if ($layanan->nama_layanan_slug == 'mutasi') {
+            $updatedData = array_merge($updatedData, [
+                "satpen_lama" => $request->satpen_lama,
+                "satpen_baru" => $request->satpen_baru,
+            ]);
+            $pengajuan->update($updatedData);
         }
 
         $pengajuan->syarat()->sync($request->persyaratan_id);

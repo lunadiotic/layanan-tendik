@@ -43,7 +43,6 @@
                         <div class="form-group">
                             <label for="satpen_id">Satpen</label>
                             <select class="form-control" id="satpen_id" name="satpen_id" required>
-                                <option value="">Pilih Golongan</option>
                                 @foreach ($satpen as $key => $value)
                                 <option value="{{ $key }}" {{ $tendik->satpen_id == $key ? 'selected' : ''}}>{{ $value
                                     }}</option>

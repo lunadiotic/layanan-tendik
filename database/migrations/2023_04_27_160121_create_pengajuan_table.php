@@ -26,6 +26,9 @@ return new class extends Migration
             // Kenaikan Pangkat
             $table->foreignId('golongan_lama')->nullable()->constrained('golongan');
             $table->foreignId('golongan_baru')->nullable()->constrained('golongan');
+            // Mutasi
+            $table->foreignId('satpen_lama')->nullable()->constrained('satpen');
+            $table->foreignId('satpen_baru')->nullable()->constrained('satpen');
             $table->timestamps();
         });
     }

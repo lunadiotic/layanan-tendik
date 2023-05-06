@@ -25,6 +25,11 @@ class LayananSeeder extends Seeder
                 'nama_layanan_slug' => 'kenaikan-pangkat',
                 'status_layanan' => true,
             ],
+            [
+                'nama_layanan' => 'Mutasi',
+                'nama_layanan_slug' => 'mutasi',
+                'status_layanan' => true,
+            ],
         ];
         DB::table('layanan')->insert($layanan);
     }
