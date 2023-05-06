@@ -29,7 +29,7 @@
                             <input type="text" class="form-control" id="nama_tendik" name="nama_tendik" required>
                         </div>
                         <div class="form-group">
-                            <label for="golongan_id">Golongan</label>
+                            <label for="golongan_id">Pangkat/Golongan</label>
                             <select class="form-control" id="golongan_id" name="golongan_id" required>
                                 <option value="">Pilih Golongan</option>
                                 @foreach ($golongan as $key => $value)
@@ -38,25 +38,46 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="satpen_id">Satpen</label>
+                            <label for="satpen_id">Nama Sekolah</label>
                             <select class="form-control" id="satpen_id" name="satpen_id" required>
-                                <option value="">Pilih Golongan</option>
                                 @foreach ($satpen as $key => $value)
                                 <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="pendidikan">Pendidikan</label>
+                            <label for="pendidikan">Pendidikan Akhir</label>
                             <input type="text" class="form-control" id="pendidikan" name="pendidikan" required>
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <input type="text" class="form-control" id="status" name="status" required>
+                            <select name="status" id="" class="form-control" required>
+                                <option value="guru">Guru</option>
+                                <option value="kepala sekolah">Kepala Sekolah</option>
+                                <option value="tenaga kependidikan">Tenaga Kependidikan</option>
+                                <option value="pengawas sekolah">Pengawas Sekolah</option>
+                                <option value="penilik">Penilik</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="status_detail">Status Detail</label>
+                            <label for="status_detail">Nama PLT</label>
                             <input type="text" class="form-control" id="status_detail" name="status_detail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="korwil">Korwil</label>
+                            <input type="text" class="form-control" id="korwil" name="korwil" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="no_hp">No.HP</label>
+                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tanggal Pensiun</label>
+                            <input type="date" class="form-control" id="tahun_pensiun" name="tahun_pensiun" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="keterangan">Keterangan</label>
+                            <input type="text" class="form-control" id="keterangan" name="keterangan" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

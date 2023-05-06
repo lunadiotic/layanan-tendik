@@ -31,7 +31,7 @@
                                 value="{{ $tendik->nama_tendik }}">
                         </div>
                         <div class="form-group">
-                            <label for="golongan_id">Golongan</label>
+                            <label for="golongan_id">Pangkat/Golongan</label>
                             <select class="form-control" id="golongan_id" name="golongan_id" required>
                                 <option value="">Pilih Golongan</option>
                                 @foreach ($golongan as $key => $value)
@@ -50,19 +50,48 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="pendidikan">Pendidikan</label>
+                            <label for="pendidikan">Pendidikan Akhir</label>
                             <input type="text" class="form-control" id="pendidikan" name="pendidikan" required
                                 value="{{ $tendik->pendidikan }}">
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <input type="text" class="form-control" id="status" name="status" required
-                                value="{{ $tendik->status }}">
+                            <select name="status" id="" class="form-control" required>
+                                <option value="guru" {{ $tendik->status == 'guru' ? 'selected' : ''}}>Guru</option>
+                                <option value="kepala sekolah" {{ $tendik->status == 'kepala sekolah' ? 'selected' :
+                                    ''}}>Kepala Sekolah</option>
+                                <option value="tenaga kependidikan" {{ $tendik->status == 'tenaga kependidikan' ?
+                                    'selected' : ''}}>Tenaga Kependidikan</option>
+                                <option value="pengawas sekolah" {{ $tendik->status == 'pengawas sekolah' ? 'selected' :
+                                    ''}}>Pengawas Sekolah</option>
+                                <option value="penilik" {{ $tendik->status == 'penilik' ? 'selected' : ''}}>Penilik
+                                </option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="status_detail">Status Detail</label>
+                            <label for="status_detail">Nama PLT</label>
                             <input type="text" class="form-control" id="status_detail" name="status_detail" required
                                 value="{{ $tendik->status_detail }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="korwil">Korwil</label>
+                            <input type="text" class="form-control" id="korwil" name="korwil" required
+                                value="{{ $tendik->korwil }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="no_hp">No.HP</label>
+                            <input type="text" class="form-control" id="no_hp" name="no_hp" required
+                                value="{{ $tendik->no_hp }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tanggal Pensiun</label>
+                            <input type="date" class="form-control" id="tahun_pensiun" name="tahun_pensiun" required
+                                value="{{ $tendik->tahun_pensiun }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="keterangan">Keterangan</label>
+                            <input type="text" class="form-control" id="keterangan" name="keterangan" required
+                                value="{{ $tendik->keterangan }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

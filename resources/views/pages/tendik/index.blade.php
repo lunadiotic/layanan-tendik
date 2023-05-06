@@ -18,9 +18,9 @@
                         <tr>
                             <th>NIP</th>
                             <th>Nama</th>
-                            <th>Satpen</th>
+                            <th>Nama Sekolah</th>
                             <th>Pangkat/Golongan</th>
-                            <th>Pendidikan</th>
+                            <th>Pendidikan Akhir</th>
                             <th width="10%">Action</th>
                         </tr>
                     </thead>

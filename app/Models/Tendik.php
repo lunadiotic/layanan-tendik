@@ -19,6 +19,10 @@ class Tendik extends Model
         'status_detail',
         'golongan_id',
         'satpen_id',
+        'korwil',
+        'no_hp',
+        'tahun_pensiun',
+        'keterangan',
     ];
 
     public function satpen()
